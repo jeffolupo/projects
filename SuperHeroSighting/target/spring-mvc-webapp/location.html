@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Locations</h1>
+            <hr/>
+            <div class="navbar">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="index.html">Home</a></li>
+                    <li role="presentation"><a href="organization.html">Organizations</a></li>
+                    <li role="presentation"><a href="superhero.html">SuperHeroes</a></li>
+                    <li role="presentation" class="active"><a href="location.html">Locations</a></li>
+                    <li role="presentation"><a href="sighting.html">Sightings</a></li>
+                </ul>    
+            </div>
+            <ul class="list-group" id="errorMessages"></ul>
+            <!--
+            Add a row to our container - this will hold the summary table and the new contact form.
+            -->
+            <div class="row">
+                <!-- #2: Add a col to hold the summary table - have it take up half the row -->
+                <div class="col-md-6">
+                    <div id="locationTableDiv">
+                        <h2>All Locations</h2>
+
+                        <table id="locationTable" class="table table-hover">
+                            <tr>
+                                <th width="40%">Location Name</th>
+                                <th width="30%">Address</th>
+                                <th width="15%"></th>
+                                <th width="15%"></th>
+                            </tr>
+                            <!--
+                             #3: This holds the list of contacts - we will add rows
+                            dynamically
+                             using jQuery
+                            -->
+                            <tbody id="contentRow"></tbody>
+                        </table>
+                    </div>
+
+                    <div id="editFormDiv" style="display: none">
+                        <h2>Edit Location</h2>
+
+                        <form class="form-horizontal" role="form" id="editForm">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="editLocationId">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="editLocationName" class="col-md-4 control-label">
+                                    Name of Location:
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="editLocationName"
+                                           required/> 
+                                </div>
+                            </div>
+
+                            <div class="form-group">    
+                                <label for="editAddress" class="col-md-4 control-label">
+                                    Address:
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="editAddress"
+                                           required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">    
+                                <label for="editLatitude" class="col-md-4 control-label">
+                                    Latitude:
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="number" class="form-control"
+                                           id="editLatitude" min="-90" max="90"
+                                           required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">    
+                                <label for="editLongitude" class="col-md-4 control-label">
+                                    Longitude:
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="number" class="form-control"
+                                           id="editLongitude" min="-180" max="180"
+                                           required/>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 col-md-offset-6" id="btn-group">
+                                <input type="hidden" id="edit-hero-id">
+                                <button type="button" id="cancelEditButton" class="btn btn-default">
+                                    Cancel
+                                </button>
+
+                                <button type="submit" id="updateButton" class="btn btn-info">
+                                    Update Location
+                                </button>    
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>Add New Location</h2>
+                    <form class="form-horizontal" role="form" id="addForm">
+                    <div class="form-group">
+                        <label for="addLocationName" class="col-md-4 control-label">
+                            Name of Location:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control"
+                                   id="addLocationName"
+                                   required/> 
+                        </div>
+                    </div>
+
+                    <div class="form-group">    
+                        <label for="addAddress" class="col-md-4 control-label">
+                            Address:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control"
+                                   id="addAddress"
+                                   required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">    
+                        <label for="addLatitude" class="col-md-4 control-label">
+                            Latitude:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control"
+                                   id="addLatitude" min="-90" max="90"
+                                   required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">    
+                        <label for="addLongitude" class="col-md-4 control-label">
+                            Longitude:
+                        </label>
+                        <div class="col-md-8">
+                            <input type="number" class="form-control"
+                                   id="addLongitude" min="-180" max="180"
+                                   required/>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 col-md-offset-6" id="btn-group">
+                        <button type="button" id="cancelAddButton" class="btn btn-default">
+                            Cancel
+                        </button>
+
+                        <button type="submit" id="addButton" class="btn btn-info">
+                            Add Location
+                        </button>    
+                    </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/location.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    </body>
+</html>

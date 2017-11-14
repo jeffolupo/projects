@@ -1,0 +1,14 @@
+.italic {
+    font-style: italic;
+}
+
+.sightingDivs {
+    border:1px solid gray;
+    margin: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.formattModal {
+    margin: 10px;
+}

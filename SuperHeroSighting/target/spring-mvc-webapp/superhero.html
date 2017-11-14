@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>SuperHero Page</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>SuperHeroes</h1>
+            <hr/>
+            <div class="navbar">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="index.html">Home</a></li>
+                    <li role="presentation"><a href="organization.html">Organizations</a></li>
+                    <li role="presentation" class="active"><a href="superhero.html">SuperHeroes</a></li>
+                    <li role="presentation"><a href="location.html">Locations</a></li>
+                    <li role="presentation"><a href="sighting.html">Sightings</a></li>
+                </ul>    
+            </div>
+            <ul class="list-group" id="errorMessages"></ul>
+            <!--
+            Add a row to our container - this will hold the summary table and the new contact form.
+            -->
+            <div class="row">
+                <!-- #2: Add a col to hold the summary table - have it take up half the row -->
+                <div class="col-md-6">
+                    <div id="heroTableDiv">
+                        <h2>All SuperHeroes/Villains</h2>
+
+                        <table id="heroTable" class="table table-hover">
+                            <tr>
+                                <th width="30%">SuperHero Name</th>
+                                <th width="20%">SuperHero Power</th>
+                                <th width="30%">SuperHero Attitude</th>
+                                <th width="10%"></th>
+                                <th width="10%"></th>
+                            </tr>
+                            <!--
+                             #3: This holds the list of contacts - we will add rows
+                            dynamically
+                             using jQuery
+                            -->
+                            <tbody id="contentRow"></tbody>
+                        </table>
+                    </div>
+
+                    <!--
+                            Below is the edit organization form.  it is hidden until
+                            edit link is clicked, then it is shown dynamically using
+                            jQuery.
+                    -->
+
+                    <div id="editFormDiv" style="display: none">
+                        <h2>Edit SuperHero/Villain</h2>
+
+                        <form class="form-horizontal" role="form" id="editForm">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="editHeroId">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="editHeroName" class="col-md-4 control-label">
+                                    Name of SuperHero
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="editHeroName"
+                                           required/> 
+                                </div>
+                            </div>
+
+                            <div class="form-group">    
+                                <label for="editPower" class="col-md-4 control-label">
+                                    Select Super Hero's Power:
+                                </label>
+                                <div class="col-md-8">
+                                    <select name="power" class="form-control" id="editPower" required>
+                                        <option value=""> Selection is Required </option> 
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="editAttitude" class="col-md-4 control-label">
+                                    Super Hero's Attitude:
+                                </label>
+                                <div class="col-md-8">
+                                    <select name="attitude" class="form-control" id="editAttitude" required>
+                                        <option value=""> Selection is Required </option> 
+                                    </select>                                
+                                </div>    
+                            </div>
+
+                            <div class="form-group">
+                                <label for="editOrganization" class="col-md-4 control-label">
+                                    Organizations Hero is Associated With:
+                                </label>
+                                <div class="col-md-8">
+                                    <select name="organizations" class="form-control selectpicker" multiple title="Choose all that apply..." 
+                                            data-selected-text-format="count" id="editOrganization" >
+                                        <option value=""> Selection is Required </option> 
+                                    </select>
+                                </div>    
+                            </div>
+
+
+                            <div class="col-md-12 col-md-offset-6" id="btn-group">
+                                <input type="hidden" id="edit-hero-id">
+                                <button type="button" id="cancelEditButton" class="btn btn-default">
+                                    Cancel
+                                </button>
+
+                                <button type="submit" id="updateButton" class="btn btn-info">
+                                    Update Super Hero
+                                </button>    
+                            </div>
+
+
+                        </form>
+                    </div>
+                </div> <!-- End col div -->
+                <!--
+                #4: Add col to hold the new contact form - have it take up the other half of the row
+                -->
+
+
+                <div class="col-md-6">
+                    <h2>Add New SuperHero/Villain</h2>
+
+                    <form class="form-horizontal" role="form" id="addForm">
+                        <div class="form-group">
+                            <label for="addHeroName" class="col-md-4 control-label">
+                                Name of SuperHero/Villain
+                            </label>
+                            <div class="col-md-8">
+                                <input type="text" class="form-control"
+                                       id="addHeroName"
+                                       required/>
+                            </div>
+                        </div>
+
+                        <div class="form-group">    
+                            <label for="newSuperPower" class="col-md-4 control-label">
+                                Select SuperPower:
+                            </label>
+                            <div class="col-md-8">
+                                <select name="power2" class="form-control" id="newSuperPower" required>
+                                    <option value=""> Selection is Required </option> 
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="newAttitude" class="col-md-4 control-label">
+                                Select Hero's Attitude:
+                            </label>
+                            <div class="col-md-8">
+                                <select name="attitude2" class="form-control" id="newAttitude" required>
+                                    <option value=""> Selection is Required </option> 
+                                </select>
+                            </div>    
+                        </div>
+
+                        <div class="form-group">
+                            <label for="newOrganization" class="col-md-4 control-label">
+                                Select Organization Hero is Associated With:
+                            </label>
+                            <div class="col-md-8">
+                                <select name="organization2" class="form-control selectpicker" multiple title="Choose all that apply..." 
+                                            data-selected-text-format="count" id="newOrganization" >
+                                    <option value=""> Selection is Required </option> 
+                                </select>
+                            </div>    
+                        </div>
+
+                        <div class="col-md-12 col-md-offset-6" id="btn-group">
+                            <button type="button" id="cancelAddButton" class="btn btn-default">
+                                Cancel
+                            </button> 
+                            <button type="submit" id="addSuperHero" class="btn btn-info">
+                                Add SuperHero
+                            </button>    
+                        </div>
+
+                    </form>
+                </div> <!-- End col div -->
+            </div> <!-- End row div -->
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/superhero.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    </body>
+</html>

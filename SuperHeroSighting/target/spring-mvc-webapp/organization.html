@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Organization Page</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>All Organizations</h1>
+            <hr/>
+            <div class="navbar">
+                <ul class="nav nav-tabs">
+                    <li role="presentation"><a href="index.html">Home</a></li>
+                    <li role="presentation" class="active"><a href="organization.html">Organizations</a></li>
+                    <li role="presentation"><a href="superhero.html">SuperHeroes</a></li>
+                    <li role="presentation"><a href="location.html">Locations</a></li>
+                    <li role="presentation"><a href="sighting.html">Sightings</a></li>
+                </ul>    
+            </div>
+            <ul class="list-group" id="errorMessages"></ul>
+            <!--
+            Add a row to our container - this will hold the summary table and the new contact form.
+            -->
+            <div class="row">
+                <!-- #2: Add a col to hold the summary table - have it take up half the row -->
+                <div class="col-md-6">
+                    <div id="organizationTableDiv">
+                        <h2>Hero/Villain Organizations</h2>
+
+                        <table id="organizationTable" class="table table-hover">
+                            <tr>
+                                <th width="40%">Organization Name</th>
+                                <th width="30%"></th>
+                                <th width="30%"></th>
+                            </tr>
+                            <!--
+                             #3: This holds the list of contacts - we will add rows
+                            dynamically
+                             using jQuery
+                            -->
+                            <tbody id="contentRow"></tbody>
+                        </table>
+                    </div>
+
+                    <!--
+                            Below is the edit organization form.  it is hidden until
+                            edit link is clicked, then it is shown dynamically using
+                            jQuery.
+                    -->
+
+                    <div id="editFormDiv" style="display: none">
+                        <h2>Edit Organization</h2>
+
+                        <form class="form-horizontal" role="form" id="editForm">
+                            <div class="form-group">
+                                <input type="hidden" class="form-control" id="editOrganizationId">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="editOrganizationName" class="col-md-4 control-label">
+                                    Name of Organization:
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="editOrganizationName"
+                                           required/> 
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="editOrganizationDescription" class="col-md-4 control-label">
+                                    Description of Organization:
+                                </label>
+                                <div class="col-md-8">
+                                    <textarea 
+                                           class="form-control"
+                                           id="editOrganizationDescription"
+                                           rows="3"
+                                           required></textarea>
+                                </div>    
+                            </div>
+                            
+
+                            <div class="form-group">    
+                                <label for="organizationLocations" class="col-md-4 control-label">
+                                    Location Of Organization:
+                                </label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="organizationLocations" required></select>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-md-12 col-md-offset-6" id="btn-group">
+                                <input type="hidden" id="edit-contact-id">
+                                <button type="button" id="cancelEditButton" class="btn btn-default">
+                                    Cancel
+                                </button>
+                             
+                                <button type="submit" id="updateButton" class="btn btn-info">
+                                    Update Organization
+                                </button>    
+                            </div>
+
+                           
+                        </form>
+                    </div>
+                </div> <!-- End col div -->
+                <!--
+                #4: Add col to hold the new contact form - have it take up the other half of the row
+                -->
+
+
+                <div class="col-md-6">
+                    <h2>Add New Organization</h2>
+
+                    <form class="form-horizontal" role="form" id="addForm" >
+                            <div class="form-group">
+                                <label for="addOrganizationName" class="col-md-4 control-label">
+                                    Name of Organization:
+                                </label>
+                                <div class="col-md-8">
+                                    <input type="text" class="form-control"
+                                           id="addOrganizationName"
+                                           required/>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="addOrganizationDescription" class="col-md-4 control-label">
+                                    Description of Organization:
+                                </label>
+                                <div class="col-md-8">
+                                    <textarea 
+                                           class="form-control col-md-8"
+                                           id="addOrganizationDescription"
+                                           rows="3"
+                                           required></textarea>
+                                </div>    
+                            </div>
+
+                            <div class="form-group">    
+                                <label for="newOrganizationLocations" class="col-md-4 control-label">
+                                    Location Of Organization:
+                                </label>
+                                <div class="col-md-8">
+                                    <select class="form-control" id="newOrganizationLocations" required>
+                                        <option value="" disabled> select an option </option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            
+                            <div class="col-md-12 col-md-offset-6" id="btn-group">
+                                <button type="button" id="cancelAddButton" class="btn btn-default">
+                                    Cancel
+                                </button> 
+                                <button type="submit" id="addOrganizationButton" class="btn btn-info">
+                                    Add Organization
+                                </button>    
+                            </div>
+
+                           
+                        </form>
+                </div> <!-- End col div -->
+            </div> <!-- End row div -->
+        </div>
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/organization.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    </body>
+</html>
+

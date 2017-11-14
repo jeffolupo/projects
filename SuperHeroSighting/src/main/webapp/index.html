@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Index Page</title>
+        <!-- Bootstrap core CSS -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/index.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Latest Sightings</h1>
+            <hr/>
+            <div class="navbar">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="index.html">Home</a></li>
+                    <li role="presentation"><a href="organization.html">Organizations</a></li>
+                    <li role="presentation"><a href="superhero.html">SuperHeroes</a></li>
+                    <li role="presentation"><a href="location.html">Locations</a></li>
+                    <li role="presentation"><a href="sighting.html">Sightings</a></li>
+                </ul>    
+            </div>
+            <h2>Last 10 Sightings</h2>
+
+            <div class="jumbotron">
+                <div class="container">
+
+                </div>
+            </div>
+            <div class="row" id="sightingArea"></div>
+
+            <div class="modal fade modalDisplay" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content" id="content">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/index.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+    </body>
+</html>

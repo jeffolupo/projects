@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burritos, Tacos, and Pizzas, Oh My!</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <link href="css/seeAllPosts.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Burritos, Tacos, and Pizzas, Oh My!</h1>
+            <hr/>
+            <div class="navbar">
+                <ul class="nav nav-tabs" id="navbar">
+                    <li><a class="navword" href="index.html">Home</a></li>
+                    <li><a class="navword" href="search.html">Search</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle navword" data-toggle="dropdown" href="#" role="button">Manage Site
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="addPost.html">Add Post</a></li>
+                            <li><a href="approvePost.html">Approve Post</a></li>
+                            <li><a href="addPage.html">Add Page</a></li>
+                            <li><a href="seeAllPosts-User.html">See All Posts - User</a></li>
+                            <li><a href="seeAllPosts.html">See All Posts - Admin</a></li>
+                            <li><a href="seeAllPages.html">See All Pages</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="list-group" id="errorMessages"></ul>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div id="allPostsTableDiv">
+
+                        <h2>All Posts</h2>
+                        <table id="postsTable" class="table table-hover">
+                            <tr>
+                                <th width="25%">Post Title</th>
+                                <th width="25%">Category</th>
+                                <th width="15%">Approved</th>
+                                <th width="15%">Hidden</th>
+                                <th width="10%"></th>
+                                <th width="10%"></th>
+                            </tr>
+                            <tbody id="contentRow"></tbody>
+                        </table> 
+                    </div>
+                </div> <!-- End col div -->
+            </div>
+
+            <div class="row">
+                <div id="editFormDiv" class="col-md-8 col-md-offset-2" style="display: none">
+
+                    <h2>Edit Post</h2>
+
+                    <form id="edit-form">
+                        <div class="form-group">                            
+                            <input type="hidden" class="form-control" id="postId">
+                        </div> 
+
+                        <div class="form-group">                            
+                            <input type="hidden" class="form-control" id="originalTime">
+                        </div>
+
+                        <div class="form-group">                            
+                            <input type="hidden" class="form-control" id="updateTime">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postTitle">Title:</label>
+                            <input type="text" class="form-control" id="postTitle">
+                        </div>
+
+                        <div class="form-group">    
+                            <label for="postCategory" class="col-md-2 control-label">
+                                Category of Post:
+                            </label>
+                            <div class="col-md-4">
+                                <select class="form-control selectpicker catt" id="postCategory"></select>
+                            </div>
+
+                            <label for="hashtags" class="col-md-2 control-label">
+                                Hashtags:
+                            </label>
+                            <div class="col-md-4">
+                                <select class="form-control selectpicker" multiple title="Choose all that apply..." 
+                                        data-selected-text-format="count" id="hashtags"></select>
+                            </div>                            
+                        </div>
+
+                        <div class="form-group">
+                            <label for="postContent">Content:</label>
+                            <textarea class="tinymce" id="postContent" style="display: inline-block;"></textarea>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <div class="input-group">
+                                    <input type="checkbox" id="isHidden">
+                                    <label for="isHidden">Hide Post</label>
+                                </div>
+                                <div class="form-group">                            
+                                    <input type="hidden" class="form-control" id="isApproved" value="False">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-9" id="btn-group">
+                                <button id="preview" class="btn btn-info" type="button">Preview</button>
+                                <button id="cancel" class="btn btn-default" type="button">Cancel</button>
+                                <button id="update" class="btn btn-success" type="button">Update</button>
+                            </div>
+                        </div>
+
+                    </form>
+
+                    <div id="previewContainer"></div>
+
+                </div>        
+
+            </div>
+
+        </div>
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="js/init-tinymce.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+        <script src="js/seeAllPosts-User.js"></script>
+        <script src="js/staticPages.js"></script>
+    </body>
+    </

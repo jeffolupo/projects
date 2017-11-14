@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Burritos, Tacos, and Pizzas, Oh My!</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/addPostAndPage.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <h1>Burritos, Tacos, and Pizzas, Oh My!</h1>
+            <img src="static/foodiesfeed.com_mexican-burrito-with-cream.jpg" alt='burrito' style='width:375px;height:200px'>
+            <img src="static/tacos-1613795_640.jpg" alt='tacos' style='width:380px;height:200px'>
+            <img src="static/vegetables-italian-pizza-restaurant.jpg" alt='pizza' style='width:375px;height:200px'>
+            <hr/>
+            <div class="navbar">
+                <ul class="nav nav-tabs" id="navbar">
+                    <li><a class="navword" href="index.html">Home</a></li>
+                    <li><a class="navword" href="search.html">Search</a></li>
+                    <li role="presentation" class="dropdown">
+                        <a class="dropdown-toggle navword" data-toggle="dropdown" href="#" role="button">Manage Site
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="addPost.html">Add Post</a></li>
+                            <li><a href="approvePost.html">Approve Post</a></li>
+                            <li><a href="addPage.html">Add Page</a></li>
+                            <li><a href="seeAllPosts-User.html">See All Posts - User</a></li>
+                            <li><a href="seeAllPosts.html">See All Posts - Admin</a></li>
+                            <li><a href="seeAllPages.html">See All Pages</a></li>
+                        </ul>
+                    </li>
+                    <li id="logout"><a class="navword" href="j_spring_security_logout">Log Out</a></li>
+                </ul>
+            </div>
+            <h2>Add New Post</h2>
+            <div class='form-group'>
+                <form id="new-post-form" method="post">
+                    <div class="col-sm-10" style="display: inline-block;">
+                        <label class="control-label col-sm-2" for="title">
+                            Title: </label>
+                        <div class="col-sm-4">
+                            <input type="text" id="title" required/>
+                        </div>
+                    </div>
+                    <div class="col-sm-10" style="display: inline-block;" id="category-select-div">
+                        <label class="control-label col-sm-2" for="category">Category: </label>
+                        <div class="col-sm-4">
+                            <select id='category' class='form-control' required>
+                                <option value="">Select Category</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="alert alert-danger" role="alert"
+                         id="category-load-error">
+                        <strong>Error!</strong> Unable to load categories. Please try again later.
+                    </div>
+                    <div id="tinymce-div">
+                        <textarea class="tinymce" id="text-editor"
+                                  style="display: inline-block;"></textarea>
+                    </div>
+                    <div class="col-sm-10" style="display: inline-block;">
+                        <label class="control-label col-sm-2" for="hashtags">
+                            Hashtags:</label>
+                        <div class="col-sm-4">
+                            <input id="hashtags" placeholder="Hit enter to add"/>
+                        </div>
+                        <div class="col-sm-4">
+                            <ul id="hashtag-list" style="list-style-type:none"></ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="input-group">
+                            <input type="checkbox" id="isHidden">
+                            <label for="isHidden">Hide Post</label>
+                        </div>
+                    </div>
+
+                    <div class="row" id="success-alert-div">
+                        <div class="alert alert-success alert-dismissible" role="alert"
+                             id="new-post-success-alert">
+                            <button type="button" class="close" data-dismiss="alert"
+                                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                            <strong>Success!</strong> New post successfully created.
+                        </div>
+                    </div>
+                    <div class="col-sm-12" id="btn-group">
+                        <button id="preview" class="btn btn-info" type="button">Preview</button>
+                        <button id="reset" class="btn btn-default" type="reset">Clear</button>
+                        <button id="submit" class="btn btn-success" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+            <div id="preview-container"></div>
+        </div>
+
+        <script src="js/jquery-3.1.1.min.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script type="text/javascript" src="tinymce/tinymce.min.js"></script>
+        <script type="text/javascript" src="js/init-tinymce.js"></script>
+        <script src="js/addPost.js"></script>
+        <script src="js/staticPages.js"></script>
+        <script src="js/authStatus.js"></script>
+    </body>
+</html>

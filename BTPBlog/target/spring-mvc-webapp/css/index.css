@@ -1,0 +1,54 @@
+#loadPostsError {
+    display: none;
+}
+
+#showMoreBtn {
+    display: none;
+    margin-bottom: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+#displayPosts h5 {
+    font-weight: bold;
+}
+
+#displayPosts div.category {
+    float: right;
+}
+
+.navbar {
+    background-color: #245269
+
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: whitesmoke;
+    background-color: silver;
+}
+
+.navword {
+    color: whitesmoke;
+}
+
+#logout {
+    float: right;
+    display: none;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+    color: firebrick;
+}
+
+h3 {
+    color: firebrick;
+}

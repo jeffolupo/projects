@@ -1,0 +1,69 @@
+#category-select-div {
+    display: inline-block;
+}
+
+#category-load-error {
+    display: inline-block;
+}
+
+label, input, select, #tinymce-div {
+    margin-bottom: 15px;
+}
+#btn-group {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+input[type=checkbox] {
+    margin: 5px;
+}
+
+#success-alert-div {
+    float: right;
+    display: none;
+}
+
+#new-post-success-alert {
+    display: inline-block;
+    margin: 0px;
+}
+
+#preview-container {
+    display: inline-block;
+    word-wrap: break-word;
+}
+
+
+.navbar {
+    background-color: #245269
+
+}
+
+.nav > li > a:hover,
+.nav > li > a:focus {
+    text-decoration: whitesmoke;
+    background-color: silver;
+}
+
+.navword {
+    color: whitesmoke;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+    color: firebrick;
+}
+
+h2 {
+    color: firebrick;
+}
+
+#logout {
+    float: right;
+    display: none;
+}
