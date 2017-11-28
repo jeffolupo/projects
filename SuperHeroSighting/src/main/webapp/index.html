@@ -6,6 +6,7 @@
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <link href="css/index.css" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -20,21 +21,54 @@
                     <li role="presentation"><a href="sighting.html">Sightings</a></li>
                 </ul>    
             </div>
-            <h2>Last 10 Sightings</h2>
-
             <div class="jumbotron">
-                <div class="container">
 
-                </div>
             </div>
-            <div class="row" id="sightingArea"></div>
 
-            <div class="modal fade modalDisplay" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-                <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content" id="content">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Last 10 Sightings</h2>
+
+                    <!--                    this is where the last 10 sightings will be displayed-->
+                    <div class="row" id="sightingArea"></div>
+
+                    <!--                    this is the modal for the "show more info buttons. info is generated dynamically"-->
+                    <div class="modal fade modalDisplay" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+                        <div class="modal-dialog modal-lg" role="document">
+                            <div class="modal-content" id="content">
+                            </div>
+                        </div>
                     </div>
+
                 </div>
+
+                <div class="col-sm-4">
+                    <h2>Graph of sightings</h2>
+
+                    <svg width="250" height="250">
+                    <rect x="0" y="0" width="10" height="200" fill="gray"/>
+                    <rect x="10" y="200" width="250" height="10" fill="gray"/>
+
+                    <g transform="translate(20,10) ">
+                    <circle cx="0" cy="0" r="10" />
+                    <circle cx="100" cy="100" r="10" />
+                    <circle cx="130" cy="120" r="10" />
+                    <circle cx="80" cy="180" r="10" />
+                    <circle cx="180" cy="80" r="10" />
+                    <circle cx="180" cy="40" r="10" />
+                    </g>
+
+                    </svg>
+                </div>
+
+                <div class="col-sm-4">
+                    <h3>SuperHero Sightings</h3>
+                    <div id="map"></div>
+                </div>
+
             </div>
+
+
 
 
         </div>
@@ -43,5 +77,8 @@
         <script src="js/bootstrap.js"></script>
         <script src="js/index.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCXwI6M_nb42reZyV2nGdpR-t3nRWTK5Ik&callback=initMap">
+        </script>
     </body>
 </html>

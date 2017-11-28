@@ -235,8 +235,8 @@ public class DaoImpl implements Dao{
     private static final String SQL_SELECT_ALL_SIGHTINGS
         = "select * from Sighting";
     
-    private static final String SQL_SELECT_LATEST_10_SIGHTINGS
-        = "SELECT * FROM sighting ORDER BY sightingId desc limit 10;";
+    private static final String SQL_SELECT_LATEST_9_SIGHTINGS
+        = "SELECT * FROM sighting ORDER BY sightingId desc limit 9;";
     
     private static final String SQL_SELECT_ALL_SIGHTINGS_WHERE_LOCATIONID
         = "select * from Sighting where locationId = ?;";
@@ -733,7 +733,7 @@ public class DaoImpl implements Dao{
     
     public List<Sighting> getLatestSightings(){
         try{
-            List<Sighting> sights = jdbcTemplate.query(SQL_SELECT_LATEST_10_SIGHTINGS, new SightingMapper());
+            List<Sighting> sights = jdbcTemplate.query(SQL_SELECT_LATEST_9_SIGHTINGS, new SightingMapper());
             for (Sighting sight : sights){
                 sight.setLocation(findLocationForSighting(sight));
                 sight.setHeroes(findHeroesForSighting(sight));
